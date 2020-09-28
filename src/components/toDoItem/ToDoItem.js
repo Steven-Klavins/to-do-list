@@ -11,9 +11,9 @@ export default class ToDoItem extends Component {
     console.log(this.props.note);
     console.log('this is being rendered');
     return(
-      <div>
+      <li>
           {this.props.note}
-      </div>
+      </li>
     )
   }
 }
