@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getData } from '../../utils/apiCalls';
 
 export default class ToDoForm extends Component {
   constructor(){
@@ -6,10 +7,20 @@ export default class ToDoForm extends Component {
     this.state = {
       inputFieldText: ""
     }
+    this.handleSubmit.bind(this)
   }
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state.inputFieldText)
+    const data = {
+      "note": this.state.inputFieldText
+    }
+    const url ="./examplePost.json";
+    fetch(url)
+      .then( res => res.json())
+      .then( (result) => {
+        console.log('we made it this far');
+        console.log(result);
+      });
   }
 
   render() {

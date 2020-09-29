@@ -8,8 +8,6 @@ export default class ToDoItem extends Component {
   }
 
   render() {
-    console.log(this.props.note);
-    console.log('this is being rendered');
     return(
       <li>
           {this.props.note}

@@ -9,13 +9,24 @@ export default class ToDoList extends Component {
     }
   }
 
+  async componentDidMount() {
+    const url = './exampleGet.json'
+    fetch(url)
+      .then( res => res.json())
+      .then( (result) => {
+        this.setState({
+          ToDoArray: result.notes
+        })
+      })
+  }
+
   render() {
     return(
       <div>
         <ul>
-          {this.state.ToDoArray.map((element) => {
+          {this.state.ToDoArray.map((element, index) => {
             return(
-              <ToDoItem note={element}/>
+              <ToDoItem note={element} key={index}/>
             )
           })}
         </ul>
